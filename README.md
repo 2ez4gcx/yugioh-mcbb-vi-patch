@@ -177,3 +177,11 @@ Trò chơi, tên gọi, hình ảnh và âm thanh thuộc Konami và các chủ 
 quan. Bản vá chỉ chứa phần chữ dịch, phông chữ vẽ lại và các byte mã điều
 chỉnh, không phân phối dữ liệu gốc. Nếu chủ sở hữu bản quyền yêu cầu, bản vá
 sẽ được gỡ.
+
+---
+
+Bản dịch do **Khuong Doan** thực hiện — <https://khuongdoan.com/>
+
+<sub>Bản vá miễn phí và sẽ luôn như vậy. Nếu nó giúp bạn chơi lại trò chơi tuổi thơ và bạn muốn mời tác giả một ly cà phê, quét mã MoMo bên dưới. Không bắt buộc, không kèm quyền lợi gì thêm.</sub>
+
+<a href="https://github.com/2ez4gcx/Project-hub/blob/main/docs/anh/ung-ho-momo.png"><img src="https://raw.githubusercontent.com/2ez4gcx/Project-hub/main/docs/anh/ung-ho-momo.png" alt="Ủng hộ tác giả qua MoMo" width="170"></a>
