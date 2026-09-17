@@ -24,8 +24,10 @@ def main(src, ppf, dst):
     p = open(ppf, 'rb').read()
     if p[:5] != b'PPF30' or p[5] != 2:
         sys.exit('Khong phai file PPF3.')
+    # dau PPF3: 56 imagetype, 57 blockcheck, 58 undo, 59 dummy; ban ghi tu 60
+    # (co them 1024 byte khoi kiem neu bat blockcheck) - dung chuan PPF-O-Matic
     undo = p[58]
-    pos, n = 59, 0
+    pos, n = 60 + (1024 if p[57] else 0), 0
     while pos < len(p):
         off = struct.unpack_from('<Q', p, pos)[0]
         ln = p[pos + 8]
