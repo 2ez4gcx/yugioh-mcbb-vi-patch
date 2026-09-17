@@ -13,7 +13,8 @@ Nội dung gói:
 | File | Dùng để |
 |---|---|
 | `yugioh-mcbb-vi.ppf` | Bản vá, định dạng PPF 3.0 (chuẩn quen thuộc cho PS1) |
-| `apply_patch.py` | Trình áp vá bằng Python, tự kiểm SHA-256 trước và sau |
+| `apply_patch.py` | Trình áp vá bằng Python, tự kiểm SHA-256 trước và sau, tự tạo `.cue` |
+| `tao_cue.bat` | Tạo file `.cue` đúng tên cho file `.bin` (kéo thả hoặc nháy đúp) |
 | `README.md` | Hướng dẫn này |
 
 ---
@@ -136,8 +137,10 @@ Tính SHA-256 của file đã vá (cùng cách ở mục 2). Kết quả đúng:
 Tức là bắt đầu bằng `9fd03ed2`. Đúng chuỗi này thì file của bạn giống từng
 byte với bản đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá.
 
-Nếu áp bằng PPF-O-Matic thì tạo thêm file `.cue` cho đĩa mới (cách Python đã
-tự tạo sẵn): sao chép file `.cue` gốc, đổi tên thành
+Nếu áp bằng PPF-O-Matic thì cần thêm file `.cue` cho đĩa mới (cách Python đã
+tự tạo sẵn). Nhanh nhất: **kéo thả file `.bin` đã vá lên `tao_cue.bat`**, hoặc
+chép `tao_cue.bat` vào cùng thư mục rồi nháy đúp — nó tạo `.cue` đúng tên cho
+mọi file `.bin` ở đó. Muốn làm tay thì sao chép file `.cue` gốc, đổi tên thành
 `yugioh-mcbb-vi.cue`, mở bằng Notepad và sửa tên file `.bin` ở dòng đầu cho
 khớp. Nội dung chuẩn chỉ có ba dòng:
 
