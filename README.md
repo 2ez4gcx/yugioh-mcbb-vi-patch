@@ -27,10 +27,8 @@ Nội dung gói:
 | Màn tựa: Chơi mới / Chơi tiếp | Menu chọn chế độ |
 | ![Vườn nuôi thú](docs/anh/03-vuon-do-an.png) | ![Bảng chỉ số](docs/anh/04-bang-chi-so.png) |
 | Vườn nuôi thú, menu đồ ăn | Bảng chỉ số của thú |
-| ![Đặt tên thú](docs/anh/05-dat-ten.png) | ![Chọn đối thủ](docs/anh/06-chon-doi-thu.png) |
-| Bảng đặt tên, trang chữ Việt | Chọn đối thủ |
-| ![Vào trận](docs/anh/07-vao-tran.png) | ![Lệnh quân](docs/anh/08-lenh-quan.png) |
-| Vào trận | Bảng lệnh của quân: Đi / Đánh / Đòn / Xong |
+| ![Chọn đối thủ](docs/anh/06-chon-doi-thu.png) | ![Lệnh quân](docs/anh/08-lenh-quan.png) |
+| Chọn đối thủ | Bảng lệnh của quân: Đi / Đánh / Đòn / Xong |
 
 ## 1. Chuẩn bị ảnh đĩa gốc
 
