@@ -5,6 +5,7 @@ Chay:  python apply_patch.py <dia_goc.bin> <ban_va.ppf> <dia_ra.bin>
 Khong can cai them gi ngoai Python 3.  Khong sua dia goc.
 """
 import hashlib
+import os
 import struct
 import sys
 
@@ -15,6 +16,17 @@ SHA_DICH = '9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830'
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def viet_cue(dst):
+    """Tao file .cue canh file .bin vua ra (dia 1 track, Mode2/2352)."""
+    cue = os.path.splitext(dst)[0] + '.cue'
+    dong = ['FILE "%s" BINARY' % os.path.basename(dst),
+            '  TRACK 01 MODE2/2352',
+            '    INDEX 01 00:00:00']
+    with open(cue, 'wb') as f:
+        f.write(('\r\n'.join(dong) + '\r\n').encode('utf-8'))
+    return cue
 
 
 def main(src, ppf, dst):
@@ -36,6 +48,7 @@ def main(src, ppf, dst):
         pos += ln + (ln if undo else 0)
         n += 1
     open(dst, 'wb').write(data)
+    print('da tao %s' % viet_cue(dst))
     h = sha(data)
     print('da ap %d ban ghi -> %s' % (n, dst))
     print('sha256 dia ra: %s' % h)

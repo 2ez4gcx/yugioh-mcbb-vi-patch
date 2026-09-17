@@ -122,6 +122,8 @@ python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi.ppf yugioh-mcbb-vi.bin
 3. Kịch bản kiểm SHA-256 của file gốc trước; nếu không đúng nó dừng lại và báo
    "Dia goc khong dung". Nếu đúng, nó ghi ra `yugioh-mcbb-vi.bin`, in SHA-256
    của file mới và báo `KHOP ban phat hanh` khi kết quả chuẩn.
+4. Kịch bản **tự tạo luôn `yugioh-mcbb-vi.cue`** cạnh file `.bin`, đúng tên,
+   nên bỏ qua bước tạo `.cue` bằng tay ở mục 5.
 
 ## 5. Kiểm kết quả
 
@@ -134,7 +136,8 @@ Tính SHA-256 của file đã vá (cùng cách ở mục 2). Kết quả đúng:
 Tức là bắt đầu bằng `9fd03ed2`. Đúng chuỗi này thì file của bạn giống từng
 byte với bản đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá.
 
-Sau đó tạo file `.cue` cho đĩa mới: sao chép file `.cue` gốc, đổi tên thành
+Nếu áp bằng PPF-O-Matic thì tạo thêm file `.cue` cho đĩa mới (cách Python đã
+tự tạo sẵn): sao chép file `.cue` gốc, đổi tên thành
 `yugioh-mcbb-vi.cue`, mở bằng Notepad và sửa tên file `.bin` ở dòng đầu cho
 khớp. Nội dung chuẩn chỉ có ba dòng:
 
