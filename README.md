@@ -8,19 +8,44 @@ chứa** đĩa gốc hay bất kỳ dữ liệu nào của trò chơi. Bạn c�
 chính mình; bản vá chỉ ghi phần chữ tiếng Việt, phông chữ và vài byte mã điều
 chỉnh lên ảnh đĩa đó.
 
-Nội dung gói:
+## Tóm tắt 5 bước
+
+1. Chọn **một** trong ba bản (bảng ngay dưới).
+2. Tải file `.ppf` của bản đó (mục 0).
+3. Kiểm đĩa gốc Nhật của bạn có SHA-256 bắt đầu bằng `51c38225` (mục 1–2).
+4. Áp file `.ppf` lên **một bản sao của đĩa gốc** (mục 3 hoặc 4).
+5. Kiểm SHA-256 đĩa ra theo đúng dòng của bản đã chọn (mục 5), rồi mở file
+   `.cue` bằng giả lập.
+
+## Chọn bản
+
+Có **ba bản**, cả ba đều là tiếng Việt đầy đủ như nhau. Chỉ khác độ mạnh của
+thú phe máy (CPU) khi đấu ở **Battle mode**:
+
+| Bản | File cần tải | Dành cho | SHA-256 đĩa ra bắt đầu bằng |
+|---|---|---|---|
+| **1. Bản dịch thuần** | `yugioh-mcbb-vi.ppf` | Chơi lần đầu, muốn giống bản gốc. **Không biết chọn gì thì chọn bản này.** | `9fd03ed2` |
+| **2. Bản dịch + mod CPU 25%** | `yugioh-mcbb-vi-cpu25.ppf` | Đã chơi, thấy bản gốc hơi dễ | `ade0016c` |
+| **3. Bản dịch + mod CPU 50%** | `yugioh-mcbb-vi-cpu50.ppf` | Muốn thử thách thật sự | `97e00448` |
+
+Quy tắc quan trọng, tránh nhầm:
+
+- Mỗi file `.ppf` là **một bản vá trọn gói** (đã gồm tiếng Việt). **Chỉ áp một
+  file**, không áp bản thuần rồi áp thêm file mod.
+- **Luôn áp lên đĩa gốc Nhật chưa sửa**, không áp lên đĩa đã vá trước đó. Muốn
+  đổi bản thì lấy lại bản sao mới của đĩa gốc rồi áp file khác.
+- Nên đặt tên đĩa ra theo bản để khỏi lẫn, ví dụ `yugioh-mcbb-vi.bin`,
+  `yugioh-mcbb-vi-cpu25.bin`, `yugioh-mcbb-vi-cpu50.bin`.
+
+Chi tiết mod CPU ở mục 7b.
+
+Các file khác trong gói:
 
 | File | Dùng để |
 |---|---|
-| `yugioh-mcbb-vi.ppf` | **1. Bản dịch thuần**: tiếng Việt, giữ nguyên độ khó gốc |
-| `yugioh-mcbb-vi-cpu25.ppf` | **2. Bản dịch kèm mod CPU +25%** (xem mục 7b) |
-| `yugioh-mcbb-vi-cpu50.ppf` | **3. Bản dịch kèm mod CPU +50%** (xem mục 7b) |
-| `apply_patch.py` | Trình áp vá bằng Python, tự kiểm SHA-256 trước và sau, tự tạo `.cue` |
-| `tao_cue.bat` | Tạo file `.cue` đúng tên cho file `.bin` (kéo thả hoặc nháy đúp) |
+| `apply_patch.py` | Trình áp vá bằng Python, tự kiểm SHA-256 trước và sau, tự tạo `.cue` (mục 4) |
+| `tao_cue.bat` | Tạo file `.cue` đúng tên cho file `.bin` (kéo thả hoặc nháy đúp, mục 5) |
 | `README.md` | Hướng dẫn này |
-
-Cả ba file đều là bản vá PPF 3.0 (chuẩn quen thuộc cho PS1), áp thẳng lên **đĩa
-gốc Nhật**. Chỉ chọn **một** file; cách áp giống hệt nhau, chỉ khác tên file.
 
 ---
 
@@ -34,6 +59,19 @@ gốc Nhật**. Chỉ chọn **một** file; cách áp giống hệt nhau, chỉ
 | Vườn nuôi thú, menu đồ ăn | Bảng chỉ số của thú |
 | ![Chọn đối thủ](docs/anh/06-chon-doi-thu.png) | ![Lệnh quân](docs/anh/08-lenh-quan.png) |
 | Chọn đối thủ | Bảng lệnh của quân: Đi / Đánh / Đòn / Xong |
+
+## 0. Tải file về
+
+- **Tải cả gói (dễ nhất):** trên trang repo, bấm nút xanh **Code** →
+  **Download ZIP**, rồi giải nén. Bạn có đủ cả ba file `.ppf`, `apply_patch.py`
+  và `tao_cue.bat`.
+- **Tải riêng từng file:** bấm vào tên file trong danh sách (ví dụ
+  `yugioh-mcbb-vi-cpu25.ppf`), rồi bấm nút **tải xuống** (mũi tên ⤓ ở góc phải,
+  cạnh nút *Raw*). Đừng dùng chuột phải → "Lưu liên kết": cách đó tải về trang
+  web chứ không phải file vá.
+
+Kiểm kích thước sau khi tải: file `.ppf` phải khoảng **420–430 KB**. Nếu chỉ vài
+KB hoặc mở ra thấy chữ HTML thì bạn đã tải nhầm trang web, tải lại.
 
 ## 1. Chuẩn bị ảnh đĩa gốc
 
@@ -101,62 +139,100 @@ ra: đĩa gốc đúng bắt đầu bằng `51c38225`. Nếu khác, xem mục 6.
 PPF-O-Matic là công cụ nhỏ, miễn phí, chuyên áp bản vá PPF cho đĩa PS1; tìm
 "PPF-O-Matic 3" trên các trang lưu trữ công cụ ROM hacking.
 
-1. **Sao chép** file `.bin` gốc ra một bản khác, ví dụ `yugioh-mcbb-vi.bin`.
-   PPF-O-Matic sửa thẳng vào file được chọn, nên luôn giữ lại bản gốc.
-2. Mở PPF-O-Matic. Ô **ISO file**: chọn bản sao vừa tạo. Ô **Patch**: chọn
-   `yugioh-mcbb-vi.ppf` (hoặc `-cpu25.ppf` / `-cpu50.ppf` nếu muốn bản mod).
+1. **Sao chép** file `.bin` gốc ra một bản khác và đổi tên theo bản bạn chọn
+   (bảng dưới). PPF-O-Matic sửa thẳng vào file được chọn, nên **luôn giữ lại
+   file gốc** không đụng tới.
+2. Mở PPF-O-Matic. Ô **ISO file**: chọn bản sao vừa tạo. Ô **Patch**: chọn file
+   `.ppf` của đúng bản đó.
 3. Bấm **Apply**. Chỉ vài giây, chương trình báo "Successfully patched".
-4. Kiểm lại theo mục 5.
+   Ô mô tả của PPF-O-Matic hiện tên bản vá (cột cuối bảng dưới); đúng tên thì
+   bạn đã chọn đúng file.
+4. Tạo file `.cue` và kiểm kết quả theo mục 5.
+
+| Bản | Tên bản sao nên đặt | Ô **Patch** chọn | PPF-O-Matic hiện mô tả |
+|---|---|---|---|
+| 1. Bản dịch thuần | `yugioh-mcbb-vi.bin` | `yugioh-mcbb-vi.ppf` | `... ban dich tieng Viet` |
+| 2. Mod CPU 25% | `yugioh-mcbb-vi-cpu25.bin` | `yugioh-mcbb-vi-cpu25.ppf` | `... tieng Viet + CPU +25` |
+| 3. Mod CPU 50% | `yugioh-mcbb-vi-cpu50.bin` | `yugioh-mcbb-vi-cpu50.ppf` | `... tieng Viet + CPU +50` |
+
+Muốn có nhiều bản cùng lúc thì làm lại từ bước 1 cho mỗi bản, **mỗi lần một
+bản sao mới từ đĩa gốc**.
 
 ## 4. Áp vá — cách 2: Python (Windows, macOS, Linux)
 
 Cần Python 3 (tải từ python.org; trên Windows khi cài nhớ tick "Add Python to
-PATH"). Cách này **không sửa** file gốc mà tạo file mới, và tự kiểm SHA-256.
+PATH"). Cách này **không sửa** file gốc mà tạo file mới, tự kiểm SHA-256 và tự
+tạo luôn file `.cue`.
 
 1. Đặt `apply_patch.py`, file `.ppf` đã chọn và file `.bin` gốc vào cùng một
    thư mục.
-2. Mở cmd / PowerShell / Terminal tại thư mục đó và chạy:
+2. Mở cửa sổ lệnh tại thư mục đó. Windows: mở thư mục trong File Explorer, bấm
+   vào thanh địa chỉ, gõ `cmd` rồi Enter. macOS/Linux: mở Terminal tại thư mục.
+3. Chạy **đúng một** lệnh theo bản bạn chọn (thay `TEN_FILE_GOC.bin` bằng tên
+   file gốc của bạn, giữ nguyên dấu ngoặc kép):
+
+**Bản 1 — dịch thuần:**
 
 ```
 python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi.ppf yugioh-mcbb-vi.bin
 ```
 
-Bản mod thì thay tên file vá, ví dụ:
+**Bản 2 — dịch + mod CPU 25%:**
+
+```
+python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu25.ppf yugioh-mcbb-vi-cpu25.bin
+```
+
+**Bản 3 — dịch + mod CPU 50%:**
 
 ```
 python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu50.ppf yugioh-mcbb-vi-cpu50.bin
 ```
 
-(Trên macOS/Linux nếu `python` không có thì dùng `python3`.)
+Trên macOS/Linux nếu báo không có `python` thì dùng `python3`.
 
-3. Kịch bản kiểm SHA-256 của file gốc trước; nếu không đúng nó dừng lại và báo
-   "Dia goc khong dung". Nếu đúng, nó ghi ra `yugioh-mcbb-vi.bin`, in SHA-256
-   của file mới và báo `KHOP ban phat hanh: <tên bản>` khi kết quả chuẩn.
-4. Kịch bản **tự tạo luôn `yugioh-mcbb-vi.cue`** cạnh file `.bin`, đúng tên,
-   nên bỏ qua bước tạo `.cue` bằng tay ở mục 5.
+4. Đọc dòng cuối cùng mà lệnh in ra:
+
+| Dòng cuối in ra | Nghĩa |
+|---|---|
+| `KHOP ban phat hanh: ban tieng Viet` | Xong bản 1, đĩa đúng |
+| `KHOP ban phat hanh: tieng Viet + mod CPU +25%` | Xong bản 2, đĩa đúng |
+| `KHOP ban phat hanh: tieng Viet + mod CPU +50%` | Xong bản 3, đĩa đúng |
+| `Dia goc khong dung (sha256 khong khop)...` | Đĩa gốc sai, chưa ghi gì; xem mục 6 |
+| `KHONG KHOP - dia goc co the khac ban chuan` | Đĩa ra sai; xem mục 6 |
+| `Khong phai file PPF3.` | File `.ppf` tải hỏng (thường là tải nhầm trang web); tải lại theo mục 0 |
+
+Nếu tên bản ở dòng `KHOP` không phải bản bạn định chọn thì bạn đã gõ nhầm tên
+file `.ppf`; chạy lại lệnh đúng.
+
+Cách này đã tạo sẵn file `.cue` cùng tên cạnh file `.bin` (ví dụ
+`yugioh-mcbb-vi-cpu25.cue`), bỏ qua phần tạo `.cue` ở mục 5.
 
 ## 5. Kiểm kết quả
 
-Tính SHA-256 của file đã vá (cùng cách ở mục 2). Kết quả đúng theo bản vá đã dùng:
+Tính SHA-256 của file đã vá (cùng cách ở mục 2) và so với **đúng dòng của bản
+bạn đã áp**:
 
-| Bản vá | SHA-256 đĩa ra |
+| Bản | SHA-256 đĩa ra |
 |---|---|
 | 1. `yugioh-mcbb-vi.ppf` | `9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830` |
 | 2. `yugioh-mcbb-vi-cpu25.ppf` | `ade0016cea6f3f38570ce4c192dab7af3176f0814320bea373b6c398c4365160` |
 | 3. `yugioh-mcbb-vi-cpu50.ppf` | `97e00448864b5158e17e2afdc8a019ac36eb53b6d922225dd28ebf8bfafb867b` |
 
-Chỉ cần so 8 ký tự đầu (`9fd03ed2` / `ade0016c` / `97e00448`). Đúng chuỗi này thì file của bạn giống từng
-byte với bản đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá.
+Chỉ cần so 8 ký tự đầu. Đúng chuỗi này thì file của bạn giống từng byte với bản
+đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá. Ra chuỗi của một
+bản **khác** trong bảng nghĩa là bạn đã chọn nhầm file `.ppf`; đĩa vẫn dùng
+được, chỉ là bản khác.
 
 Nếu áp bằng PPF-O-Matic thì cần thêm file `.cue` cho đĩa mới (cách Python đã
 tự tạo sẵn). Nhanh nhất: **kéo thả file `.bin` đã vá lên `tao_cue.bat`**, hoặc
 chép `tao_cue.bat` vào cùng thư mục rồi nháy đúp — nó tạo `.cue` đúng tên cho
-mọi file `.bin` ở đó. Muốn làm tay thì sao chép file `.cue` gốc, đổi tên thành
-`yugioh-mcbb-vi.cue`, mở bằng Notepad và sửa tên file `.bin` ở dòng đầu cho
-khớp. Nội dung chuẩn chỉ có ba dòng:
+mọi file `.bin` ở đó. Muốn làm tay thì tạo file văn bản cùng tên với file
+`.bin` nhưng đuôi `.cue` (ví dụ `yugioh-mcbb-vi-cpu50.cue`), nội dung ba dòng,
+dòng đầu ghi **đúng tên file `.bin`** của bạn:
 
 ```
-FILE "yugioh-mcbb-vi.bin" BINARY
+FILE "yugioh-mcbb-vi-cpu50.bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 ```
@@ -170,9 +246,8 @@ FILE "yugioh-mcbb-vi.bin" BINARY
   đọc lại từ đĩa thật bằng ImgBurn ở chế độ BIN/CUE. Bản vá áp lên ảnh sai vẫn
   chạy được phần lớn, nhưng có thể lỗi ở chỗ không lường trước.
 - **Ảnh đã vá không khớp dòng tương ứng trong bảng mục 5:** bạn đã áp lên ảnh gốc sai (xem trên),
-  hoặc áp hai lần lên cùng một file (PPF-O-Matic ghi thẳng, áp lại lần hai lên
-  file đã vá thì vẫn ra đúng, nhưng áp lên file đã bị sửa khác thì không).
-  Làm lại từ bản sao gốc.
+  hoặc áp lên một file đã vá trước đó (ví dụ áp file mod lên đĩa bản thuần).
+  Làm lại từ một bản sao mới của đĩa gốc, chỉ áp một file `.ppf`.
 
 ## 7. Chạy trên giả lập
 
@@ -204,7 +279,10 @@ cho ai thấy bản gốc quá dễ:
 | 3. Mod +50% | ×1,5 | 148 / 136 / 19 |
 
 Muốn đổi mức thì áp lại file PPF khác lên **bản sao mới của đĩa gốc**, không áp
-chồng lên đĩa đã vá. Thẻ nhớ dùng chung được giữa ba bản. Bản +50% đã chạy thử
+chồng lên đĩa đã vá. Thẻ nhớ dùng chung được giữa ba bản (mod không đụng tới
+save), nhưng **save state** của giả lập thì không: save state tạo trên bản này
+nạp vào bản khác sẽ mang theo chỉ số cũ. Chỉ số mới áp khi thú CPU được đặt
+lên bàn lúc bắt đầu trận. Bản +50% đã chạy thử
 trong giả lập (chỉ số đúng, trận chạy bình thường); chưa thử trên máy PS1 thật.
 
 ## 8. Câu hỏi thường gặp
