@@ -11,7 +11,11 @@ import sys
 
 # sha256 cua dia goc va cua dia dich - doc tu README de doi chieu
 SHA_GOC = '51c38225b7e6e4af01f45aa3dd6209412ffb19c1f8569b667d038aca1141a355'
-SHA_DICH = '9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830'
+SHA_DICH = {
+    '9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830': 'ban tieng Viet',
+    'ade0016cea6f3f38570ce4c192dab7af3176f0814320bea373b6c398c4365160': 'tieng Viet + mod CPU +25%',
+    '97e00448864b5158e17e2afdc8a019ac36eb53b6d922225dd28ebf8bfafb867b': 'tieng Viet + mod CPU +50%',
+}
 
 
 def sha(data):
@@ -53,7 +57,8 @@ def main(src, ppf, dst):
     print('da ap %d ban ghi -> %s' % (n, dst))
     print('sha256 dia ra: %s' % h)
     if SHA_DICH:
-        print('KHOP ban phat hanh' if h == SHA_DICH else 'KHONG KHOP - dia goc co the khac ban chuan')
+        print('KHOP ban phat hanh: %s' % SHA_DICH[h] if h in SHA_DICH
+              else 'KHONG KHOP - dia goc co the khac ban chuan')
 
 
 if __name__ == '__main__':

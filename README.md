@@ -12,10 +12,15 @@ Nội dung gói:
 
 | File | Dùng để |
 |---|---|
-| `yugioh-mcbb-vi.ppf` | Bản vá, định dạng PPF 3.0 (chuẩn quen thuộc cho PS1) |
+| `yugioh-mcbb-vi.ppf` | **1. Bản dịch thuần**: tiếng Việt, giữ nguyên độ khó gốc |
+| `yugioh-mcbb-vi-cpu25.ppf` | **2. Bản dịch kèm mod CPU +25%** (xem mục 7b) |
+| `yugioh-mcbb-vi-cpu50.ppf` | **3. Bản dịch kèm mod CPU +50%** (xem mục 7b) |
 | `apply_patch.py` | Trình áp vá bằng Python, tự kiểm SHA-256 trước và sau, tự tạo `.cue` |
 | `tao_cue.bat` | Tạo file `.cue` đúng tên cho file `.bin` (kéo thả hoặc nháy đúp) |
 | `README.md` | Hướng dẫn này |
+
+Cả ba file đều là bản vá PPF 3.0 (chuẩn quen thuộc cho PS1), áp thẳng lên **đĩa
+gốc Nhật**. Chỉ chọn **một** file; cách áp giống hệt nhau, chỉ khác tên file.
 
 ---
 
@@ -99,7 +104,7 @@ PPF-O-Matic là công cụ nhỏ, miễn phí, chuyên áp bản vá PPF cho đ�
 1. **Sao chép** file `.bin` gốc ra một bản khác, ví dụ `yugioh-mcbb-vi.bin`.
    PPF-O-Matic sửa thẳng vào file được chọn, nên luôn giữ lại bản gốc.
 2. Mở PPF-O-Matic. Ô **ISO file**: chọn bản sao vừa tạo. Ô **Patch**: chọn
-   `yugioh-mcbb-vi.ppf`.
+   `yugioh-mcbb-vi.ppf` (hoặc `-cpu25.ppf` / `-cpu50.ppf` nếu muốn bản mod).
 3. Bấm **Apply**. Chỉ vài giây, chương trình báo "Successfully patched".
 4. Kiểm lại theo mục 5.
 
@@ -108,7 +113,7 @@ PPF-O-Matic là công cụ nhỏ, miễn phí, chuyên áp bản vá PPF cho đ�
 Cần Python 3 (tải từ python.org; trên Windows khi cài nhớ tick "Add Python to
 PATH"). Cách này **không sửa** file gốc mà tạo file mới, và tự kiểm SHA-256.
 
-1. Đặt `apply_patch.py`, `yugioh-mcbb-vi.ppf` và file `.bin` gốc vào cùng một
+1. Đặt `apply_patch.py`, file `.ppf` đã chọn và file `.bin` gốc vào cùng một
    thư mục.
 2. Mở cmd / PowerShell / Terminal tại thư mục đó và chạy:
 
@@ -116,23 +121,31 @@ PATH"). Cách này **không sửa** file gốc mà tạo file mới, và tự ki
 python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi.ppf yugioh-mcbb-vi.bin
 ```
 
+Bản mod thì thay tên file vá, ví dụ:
+
+```
+python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu50.ppf yugioh-mcbb-vi-cpu50.bin
+```
+
 (Trên macOS/Linux nếu `python` không có thì dùng `python3`.)
 
 3. Kịch bản kiểm SHA-256 của file gốc trước; nếu không đúng nó dừng lại và báo
    "Dia goc khong dung". Nếu đúng, nó ghi ra `yugioh-mcbb-vi.bin`, in SHA-256
-   của file mới và báo `KHOP ban phat hanh` khi kết quả chuẩn.
+   của file mới và báo `KHOP ban phat hanh: <tên bản>` khi kết quả chuẩn.
 4. Kịch bản **tự tạo luôn `yugioh-mcbb-vi.cue`** cạnh file `.bin`, đúng tên,
    nên bỏ qua bước tạo `.cue` bằng tay ở mục 5.
 
 ## 5. Kiểm kết quả
 
-Tính SHA-256 của file đã vá (cùng cách ở mục 2). Kết quả đúng:
+Tính SHA-256 của file đã vá (cùng cách ở mục 2). Kết quả đúng theo bản vá đã dùng:
 
-```
-9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830
-```
+| Bản vá | SHA-256 đĩa ra |
+|---|---|
+| 1. `yugioh-mcbb-vi.ppf` | `9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830` |
+| 2. `yugioh-mcbb-vi-cpu25.ppf` | `ade0016cea6f3f38570ce4c192dab7af3176f0814320bea373b6c398c4365160` |
+| 3. `yugioh-mcbb-vi-cpu50.ppf` | `97e00448864b5158e17e2afdc8a019ac36eb53b6d922225dd28ebf8bfafb867b` |
 
-Tức là bắt đầu bằng `9fd03ed2`. Đúng chuỗi này thì file của bạn giống từng
+Chỉ cần so 8 ký tự đầu (`9fd03ed2` / `ade0016c` / `97e00448`). Đúng chuỗi này thì file của bạn giống từng
 byte với bản đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá.
 
 Nếu áp bằng PPF-O-Matic thì cần thêm file `.cue` cho đĩa mới (cách Python đã
@@ -156,7 +169,7 @@ FILE "yugioh-mcbb-vi.bin" BINARY
   thuộc bản in khác, hoặc file từng bị áp một bản vá khác. Cách chắc nhất là
   đọc lại từ đĩa thật bằng ImgBurn ở chế độ BIN/CUE. Bản vá áp lên ảnh sai vẫn
   chạy được phần lớn, nhưng có thể lỗi ở chỗ không lường trước.
-- **Ảnh đã vá ra chuỗi khác `9fd03ed2…`:** bạn đã áp lên ảnh gốc sai (xem trên),
+- **Ảnh đã vá không khớp dòng tương ứng trong bảng mục 5:** bạn đã áp lên ảnh gốc sai (xem trên),
   hoặc áp hai lần lên cùng một file (PPF-O-Matic ghi thẳng, áp lại lần hai lên
   file đã vá thì vẫn ra đúng, nhưng áp lên file đã bị sửa khác thì không).
   Làm lại từ bản sao gốc.
@@ -174,6 +187,25 @@ DuckStation, ePSXe, Mednafen/Beetle PSX đều đọc được BIN/CUE.
   trong save cũ có thể mang chỉ số bị lỗi từ bản đó; nên nuôi vườn mới.
 - Màn đặt tên thú: trang đầu là bảng chữ Việt (A–Z, Á Â Đ Í Ó Ư, số, dấu câu),
   hai trang Kana và ABC của bản gốc vẫn còn.
+
+## 7b. Bản mod CPU mạnh hơn (+25% / +50%)
+
+Hai bản mod tăng **HP, công, thủ** của mọi thú phe CPU trong **Battle mode**,
+cho ai thấy bản gốc quá dễ:
+
+- **Không** tăng bước di chuyển.
+- **Không** đụng tới thú của người chơi, Breed mode hay file save.
+- Chỉ số vượt 255 được chặn ở 255 (làm tròn xuống).
+
+| Bản | Hệ số | Ví dụ BARDON phe CPU (HP / công / thủ) |
+|---|---|---|
+| 1. Bản dịch thuần | ×1 | 99 / 91 / 13 |
+| 2. Mod +25% | ×1,25 | 123 / 113 / 16 |
+| 3. Mod +50% | ×1,5 | 148 / 136 / 19 |
+
+Muốn đổi mức thì áp lại file PPF khác lên **bản sao mới của đĩa gốc**, không áp
+chồng lên đĩa đã vá. Thẻ nhớ dùng chung được giữa ba bản. Bản +50% đã chạy thử
+trong giả lập (chỉ số đúng, trận chạy bình thường); chưa thử trên máy PS1 thật.
 
 ## 8. Câu hỏi thường gặp
 
