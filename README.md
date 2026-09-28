@@ -25,8 +25,8 @@ thú phe máy (CPU) khi đấu ở **Battle mode**:
 | Bản | File cần tải | Dành cho | SHA-256 đĩa ra bắt đầu bằng |
 |---|---|---|---|
 | **1. Bản dịch thuần** | `yugioh-mcbb-vi.ppf` | Chơi lần đầu, muốn giống bản gốc. **Không biết chọn gì thì chọn bản này.** | `9fd03ed2` |
-| **2. Bản dịch + mod CPU 25%** | `yugioh-mcbb-vi-cpu25.ppf` | Đã chơi, thấy bản gốc hơi dễ | `ade0016c` |
-| **3. Bản dịch + mod CPU 50%** | `yugioh-mcbb-vi-cpu50.ppf` | Muốn thử thách thật sự | `97e00448` |
+| **2. Bản dịch + mod CPU 25%** | `yugioh-mcbb-vi-cpu25.ppf` | Đã chơi, thấy bản gốc hơi dễ | `e9de5e0d` |
+| **3. Bản dịch + mod CPU 50%** | `yugioh-mcbb-vi-cpu50.ppf` | Muốn thử thách thật sự | `cb93c9a2` |
 
 Quy tắc quan trọng, tránh nhầm:
 
@@ -216,8 +216,8 @@ bạn đã áp**:
 | Bản | SHA-256 đĩa ra |
 |---|---|
 | 1. `yugioh-mcbb-vi.ppf` | `9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830` |
-| 2. `yugioh-mcbb-vi-cpu25.ppf` | `ade0016cea6f3f38570ce4c192dab7af3176f0814320bea373b6c398c4365160` |
-| 3. `yugioh-mcbb-vi-cpu50.ppf` | `97e00448864b5158e17e2afdc8a019ac36eb53b6d922225dd28ebf8bfafb867b` |
+| 2. `yugioh-mcbb-vi-cpu25.ppf` | `e9de5e0d554671a0fe15a967a8c398e116f50b479b7414af6fe17a5d7e203207` |
+| 3. `yugioh-mcbb-vi-cpu50.ppf` | `cb93c9a298738ecd463bcde3d19b7de8bc6142d862ff826ff150ea92b214d464` |
 
 Chỉ cần so 8 ký tự đầu. Đúng chuỗi này thì file của bạn giống từng byte với bản
 đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá. Ra chuỗi của một
@@ -282,8 +282,16 @@ Muốn đổi mức thì áp lại file PPF khác lên **bản sao mới của �
 chồng lên đĩa đã vá. Thẻ nhớ dùng chung được giữa ba bản (mod không đụng tới
 save), nhưng **save state** của giả lập thì không: save state tạo trên bản này
 nạp vào bản khác sẽ mang theo chỉ số cũ. Chỉ số mới áp khi thú CPU được đặt
-lên bàn lúc bắt đầu trận. Bản +50% đã chạy thử
-trong giả lập (chỉ số đúng, trận chạy bình thường); chưa thử trên máy PS1 thật.
+lên bàn lúc bắt đầu trận, áp dụng cho cả hai kiểu xếp quân (tuỳ chọn **Tự xếp**
+ON hay OFF). Bản +50% đã chạy thử trong giả lập với cả hai kiểu xếp quân (chỉ
+số đúng, mỗi thú CPU nhân đúng một lần, trận chạy bình thường); chưa thử trên
+máy PS1 thật.
+
+> **Sửa lỗi 28/9/2026:** các file mod tải trước ngày này chỉ buff CPU khi
+> **Tự xếp = ON**. Tuỳ chọn này được lưu trong save, nên chơi tiếp từ thẻ nhớ
+> với Tự xếp = OFF thì CPU không mạnh lên. Nếu đĩa mod của bạn có SHA-256
+> bắt đầu bằng `ade0016c` hoặc `97e00448` (bản cũ), hãy tải lại file mod và
+> áp lại lên đĩa gốc.
 
 ## 8. Câu hỏi thường gặp
 

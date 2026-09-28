@@ -13,8 +13,8 @@ import sys
 SHA_GOC = '51c38225b7e6e4af01f45aa3dd6209412ffb19c1f8569b667d038aca1141a355'
 SHA_DICH = {
     '9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830': 'ban tieng Viet',
-    'ade0016cea6f3f38570ce4c192dab7af3176f0814320bea373b6c398c4365160': 'tieng Viet + mod CPU +25%',
-    '97e00448864b5158e17e2afdc8a019ac36eb53b6d922225dd28ebf8bfafb867b': 'tieng Viet + mod CPU +50%',
+    'e9de5e0d554671a0fe15a967a8c398e116f50b479b7414af6fe17a5d7e203207': 'tieng Viet + mod CPU +25%',
+    'cb93c9a298738ecd463bcde3d19b7de8bc6142d862ff826ff150ea92b214d464': 'tieng Viet + mod CPU +50%',
 }
 
 
