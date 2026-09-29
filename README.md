@@ -34,8 +34,8 @@ Quy tắc quan trọng, tránh nhầm:
   file**, không áp bản thuần rồi áp thêm file mod.
 - **Luôn áp lên đĩa gốc Nhật chưa sửa**, không áp lên đĩa đã vá trước đó. Muốn
   đổi bản thì lấy lại bản sao mới của đĩa gốc rồi áp file khác.
-- Nên đặt tên đĩa ra theo bản để khỏi lẫn, ví dụ `yugioh-mcbb-vi.bin`,
-  `yugioh-mcbb-vi-cpu25.bin`, `yugioh-mcbb-vi-cpu50.bin`.
+- Nên đặt tên đĩa ra theo bản để khỏi lẫn, ví dụ `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN).bin`,
+  `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod25.bin`, `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod50.bin`.
 
 Chi tiết mod CPU ở mục 7b.
 
@@ -151,9 +151,9 @@ PPF-O-Matic là công cụ nhỏ, miễn phí, chuyên áp bản vá PPF cho đ�
 
 | Bản | Tên bản sao nên đặt | Ô **Patch** chọn | PPF-O-Matic hiện mô tả |
 |---|---|---|---|
-| 1. Bản dịch thuần | `yugioh-mcbb-vi.bin` | `yugioh-mcbb-vi.ppf` | `... ban dich tieng Viet` |
-| 2. Mod CPU 25% | `yugioh-mcbb-vi-cpu25.bin` | `yugioh-mcbb-vi-cpu25.ppf` | `... tieng Viet + CPU +25` |
-| 3. Mod CPU 50% | `yugioh-mcbb-vi-cpu50.bin` | `yugioh-mcbb-vi-cpu50.ppf` | `... tieng Viet + CPU +50` |
+| 1. Bản dịch thuần | `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN).bin` | `yugioh-mcbb-vi.ppf` | `... ban dich tieng Viet` |
+| 2. Mod CPU 25% | `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod25.bin` | `yugioh-mcbb-vi-cpu25.ppf` | `... tieng Viet + CPU +25` |
+| 3. Mod CPU 50% | `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod50.bin` | `yugioh-mcbb-vi-cpu50.ppf` | `... tieng Viet + CPU +50` |
 
 Muốn có nhiều bản cùng lúc thì làm lại từ bước 1 cho mỗi bản, **mỗi lần một
 bản sao mới từ đĩa gốc**.
@@ -174,19 +174,19 @@ tạo luôn file `.cue`.
 **Bản 1 — dịch thuần:**
 
 ```
-python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi.ppf yugioh-mcbb-vi.bin
+python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi.ppf "Yu-Gi-Oh! Monster Capsule Breed & Battle (VN).bin"
 ```
 
 **Bản 2 — dịch + mod CPU 25%:**
 
 ```
-python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu25.ppf yugioh-mcbb-vi-cpu25.bin
+python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu25.ppf "Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod25.bin"
 ```
 
 **Bản 3 — dịch + mod CPU 50%:**
 
 ```
-python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu50.ppf yugioh-mcbb-vi-cpu50.bin
+python apply_patch.py "TEN_FILE_GOC.bin" yugioh-mcbb-vi-cpu50.ppf "Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod50.bin"
 ```
 
 Trên macOS/Linux nếu báo không có `python` thì dùng `python3`.
@@ -206,7 +206,7 @@ Nếu tên bản ở dòng `KHOP` không phải bản bạn định chọn thì 
 file `.ppf`; chạy lại lệnh đúng.
 
 Cách này đã tạo sẵn file `.cue` cùng tên cạnh file `.bin` (ví dụ
-`yugioh-mcbb-vi-cpu25.cue`), bỏ qua phần tạo `.cue` ở mục 5.
+`Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod25.cue`), bỏ qua phần tạo `.cue` ở mục 5.
 
 ## 5. Kiểm kết quả
 
@@ -228,11 +228,11 @@ Nếu áp bằng PPF-O-Matic thì cần thêm file `.cue` cho đĩa mới (cách
 tự tạo sẵn). Nhanh nhất: **kéo thả file `.bin` đã vá lên `tao_cue.bat`**, hoặc
 chép `tao_cue.bat` vào cùng thư mục rồi nháy đúp — nó tạo `.cue` đúng tên cho
 mọi file `.bin` ở đó. Muốn làm tay thì tạo file văn bản cùng tên với file
-`.bin` nhưng đuôi `.cue` (ví dụ `yugioh-mcbb-vi-cpu50.cue`), nội dung ba dòng,
+`.bin` nhưng đuôi `.cue` (ví dụ `Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod50.cue`), nội dung ba dòng,
 dòng đầu ghi **đúng tên file `.bin`** của bạn:
 
 ```
-FILE "yugioh-mcbb-vi-cpu50.bin" BINARY
+FILE "Yu-Gi-Oh! Monster Capsule Breed & Battle (VN)mod50.bin" BINARY
   TRACK 01 MODE2/2352
     INDEX 01 00:00:00
 ```
