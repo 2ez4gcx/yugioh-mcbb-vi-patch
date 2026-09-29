@@ -24,9 +24,9 @@ thú phe máy (CPU) khi đấu ở **Battle mode**:
 
 | Bản | File cần tải | Dành cho | SHA-256 đĩa ra bắt đầu bằng |
 |---|---|---|---|
-| **1. Bản dịch thuần** | `yugioh-mcbb-vi.ppf` | Chơi lần đầu, muốn giống bản gốc. **Không biết chọn gì thì chọn bản này.** | `9fd03ed2` |
-| **2. Bản dịch + mod CPU 25%** | `yugioh-mcbb-vi-cpu25.ppf` | Đã chơi, thấy bản gốc hơi dễ | `e9de5e0d` |
-| **3. Bản dịch + mod CPU 50%** | `yugioh-mcbb-vi-cpu50.ppf` | Muốn thử thách thật sự | `cb93c9a2` |
+| **1. Bản dịch thuần** | `yugioh-mcbb-vi.ppf` | Chơi lần đầu, muốn giống bản gốc. **Không biết chọn gì thì chọn bản này.** | `68d403c2` |
+| **2. Bản dịch + mod CPU 25%** | `yugioh-mcbb-vi-cpu25.ppf` | Đã chơi, thấy bản gốc hơi dễ | `40450f2d` |
+| **3. Bản dịch + mod CPU 50%** | `yugioh-mcbb-vi-cpu50.ppf` | Muốn thử thách thật sự | `b858d3a0` |
 
 Quy tắc quan trọng, tránh nhầm:
 
@@ -215,9 +215,9 @@ bạn đã áp**:
 
 | Bản | SHA-256 đĩa ra |
 |---|---|
-| 1. `yugioh-mcbb-vi.ppf` | `9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830` |
-| 2. `yugioh-mcbb-vi-cpu25.ppf` | `e9de5e0d554671a0fe15a967a8c398e116f50b479b7414af6fe17a5d7e203207` |
-| 3. `yugioh-mcbb-vi-cpu50.ppf` | `cb93c9a298738ecd463bcde3d19b7de8bc6142d862ff826ff150ea92b214d464` |
+| 1. `yugioh-mcbb-vi.ppf` | `68d403c2cc34d339d93cc5a9851733792ae5462405b3cbfe9797eefbc127ff5d` |
+| 2. `yugioh-mcbb-vi-cpu25.ppf` | `40450f2d479c4e6197b470128181d80f532b0a8542e21ed614b5407660b99176` |
+| 3. `yugioh-mcbb-vi-cpu50.ppf` | `b858d3a0418d1ee85ea8d08f9e1d47d919b2d0da80c5c30fae5c5c7ca1597b5d` |
 
 Chỉ cần so 8 ký tự đầu. Đúng chuỗi này thì file của bạn giống từng byte với bản
 đã được kiểm thử; mọi lỗi nếu có sẽ không phải do bước áp vá. Ra chuỗi của một
@@ -287,11 +287,16 @@ ON hay OFF). Bản +50% đã chạy thử trong giả lập với cả hai kiể
 số đúng, mỗi thú CPU nhân đúng một lần, trận chạy bình thường); chưa thử trên
 máy PS1 thật.
 
-> **Sửa lỗi 28/9/2026:** các file mod tải trước ngày này chỉ buff CPU khi
-> **Tự xếp = ON**. Tuỳ chọn này được lưu trong save, nên chơi tiếp từ thẻ nhớ
-> với Tự xếp = OFF thì CPU không mạnh lên. Nếu đĩa mod của bạn có SHA-256
-> bắt đầu bằng `ade0016c` hoặc `97e00448` (bản cũ), hãy tải lại file mod và
-> áp lại lên đĩa gốc.
+> **Cập nhật 29/9/2026:**
+> - Mod CPU: các file mod tải trước 28/9 chỉ buff CPU khi **Tự xếp = ON**.
+>   Tuỳ chọn này được lưu trong save, nên chơi tiếp từ thẻ nhớ với Tự xếp = OFF
+>   thì CPU không mạnh lên. Nay buff với cả hai kiểu xếp quân.
+> - Cả ba bản: màn chọn file và các hộp thẻ nhớ (tải, lưu, định dạng…) không
+>   còn hiện ký tự rác ở chỗ khoảng trắng.
+>
+> Đĩa làm từ bản cũ có SHA-256 bắt đầu bằng `9fd03ed2`, `ade0016c`,
+> `97e00448`, `e9de5e0d` hoặc `cb93c9a2`: tải lại file `.ppf` và áp lại lên
+> **đĩa gốc Nhật**. Thẻ nhớ dùng tiếp bình thường.
 
 ## 8. Câu hỏi thường gặp
 

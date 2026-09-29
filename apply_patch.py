@@ -12,9 +12,9 @@ import sys
 # sha256 cua dia goc va cua dia dich - doc tu README de doi chieu
 SHA_GOC = '51c38225b7e6e4af01f45aa3dd6209412ffb19c1f8569b667d038aca1141a355'
 SHA_DICH = {
-    '9fd03ed2a3cd5661de41faa36388a38104411a36ab3754d383f27da212657830': 'ban tieng Viet',
-    'e9de5e0d554671a0fe15a967a8c398e116f50b479b7414af6fe17a5d7e203207': 'tieng Viet + mod CPU +25%',
-    'cb93c9a298738ecd463bcde3d19b7de8bc6142d862ff826ff150ea92b214d464': 'tieng Viet + mod CPU +50%',
+    '68d403c2cc34d339d93cc5a9851733792ae5462405b3cbfe9797eefbc127ff5d': 'ban tieng Viet',
+    '40450f2d479c4e6197b470128181d80f532b0a8542e21ed614b5407660b99176': 'tieng Viet + mod CPU +25%',
+    'b858d3a0418d1ee85ea8d08f9e1d47d919b2d0da80c5c30fae5c5c7ca1597b5d': 'tieng Viet + mod CPU +50%',
 }
 
 
